@@ -25,13 +25,14 @@
 #define ALT_I RALT_T(KC_I)
 #define GUI_O RGUI_T(KC_O)
 
-#define SFT_ESC LSFT_T(KC_ENT)
+#define SFT_ENT LSFT_T(KC_ENT)
 #define SFT_SPC LSFT_T(KC_SPC)
 
 // LAYER SWITCHING
 #define NUM_ALT LT(_NUM, KC_LALT)
-#define FN_ALT LT(_FN, KC_RALT)
+#define FN_ALT  LT(_FN, KC_RALT)
 #define SYM_ESC LT(_SYM, KC_ESC)
+#define NAV_ESC LT(_NAV, KC_ESC)
 
 
 enum sofle_layers {
@@ -74,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,          /**/             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
  KC_LCTL,   GUI_A,   ALT_S,   SFT_D,   CTL_F,    KC_G,          /**/             KC_H,   CTL_J,   SFT_K,   ALT_L,GUI_SCLN, KC_QUOT,
  KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, XXXXXXX, /**/ XXXXXXX,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
-                   KC_LGUI, KC_LCTL, NUM_ALT, SYM_ESC,  KC_ENT, /**/ SFT_SPC,MO(_NAV),  FN_ALT,  KC_RCTL,KC_RGUI
+                   KC_LGUI, KC_LCTL, NUM_ALT,MO(_SYM), SFT_ENT, /**/  KC_SPC, NAV_ESC,  FN_ALT,  KC_RCTL,KC_RGUI
 ),
 
 /*
