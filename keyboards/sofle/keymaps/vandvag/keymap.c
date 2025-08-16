@@ -99,7 +99,7 @@ KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,          /**/  KC_6,    KC_7,
 KC_TAB,   KC_Q,   KC_W,    KC_F,    KC_P,    KC_G,          /**/  KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN,  KC_BSPC,
 KC_LCTL,  GUI_A,  ALT_R,   SFT_S,   CTL_TH,   KC_D,         /**/  KC_H,   CTL_N,   SFT_E,   ALT_I,   GUI_O,  KC_QUOT,
 KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_MUTE, /**/  XXXXXXX, KC_K,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_ESC,
-               KC_LGUI, KC_LCTL, NUM_ALT, SYM_ESC,  KC_ENT, /**/ SFT_SPC,MO(_NAV),  FN_ALT,  KC_RCTL,KC_RGUI
+               KC_LGUI, KC_LCTL, NUM_ALT,MO(_SYM), SFT_ENT, /**/  KC_SPC, NAV_ESC,  FN_ALT,  KC_RCTL,KC_RGUI
 ),
 
 /* SYMBOLS
