@@ -1,0 +1,2 @@
+WPM_ENABLE = no
+MOUSEKEY_ENABLE = yes
