@@ -25,11 +25,14 @@
 #define ALT_I RALT_T(KC_I)
 #define GUI_O RGUI_T(KC_O)
 
-#define SFT_ENT LSFT_T(KC_ENT)
+#define SFT_ESC LSFT_T(KC_ENT)
+#define SFT_SPC LSFT_T(KC_SPC)
 
 // LAYER SWITCHING
 #define NUM_ALT LT(_NUM, KC_LALT)
 #define FN_ALT LT(_FN, KC_RALT)
+#define SYM_ESC LT(_SYM, KC_ESC)
+
 
 enum sofle_layers {
     _QWERTY,
@@ -71,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,          /**/             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
  KC_LCTL,   GUI_A,   ALT_S,   SFT_D,   CTL_F,    KC_G,          /**/             KC_H,   CTL_J,   SFT_K,   ALT_L,GUI_SCLN, KC_QUOT,
  KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, XXXXXXX, /**/ XXXXXXX,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
-		           KC_LGUI, KC_LCTL, NUM_ALT,MO(_SYM), SFT_ENT, /**/  KC_SPC,MO(_NAV),  FN_ALT,  KC_RCTL,KC_RGUI
+                   KC_LGUI, KC_LCTL, NUM_ALT, SYM_ESC,  KC_ENT, /**/ SFT_SPC,MO(_NAV),  FN_ALT,  KC_RCTL,KC_RGUI
 ),
 
 /*
@@ -95,7 +98,7 @@ KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,          /**/  KC_6,    KC_7,
 KC_TAB,   KC_Q,   KC_W,    KC_F,    KC_P,    KC_G,          /**/  KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN,  KC_BSPC,
 KC_LCTL,  GUI_A,  ALT_R,   SFT_S,   CTL_TH,   KC_D,         /**/  KC_H,   CTL_N,   SFT_E,   ALT_I,   GUI_O,  KC_QUOT,
 KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_MUTE, /**/  XXXXXXX, KC_K,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_ESC,
-		           KC_LGUI, KC_LCTL, NUM_ALT,MO(_SYM), SFT_ENT, /**/  KC_SPC,MO(_NAV),  FN_ALT,  KC_RCTL,KC_RGUI
+               KC_LGUI, KC_LCTL, NUM_ALT, SYM_ESC,  KC_ENT, /**/ SFT_SPC,MO(_NAV),  FN_ALT,  KC_RCTL,KC_RGUI
 ),
 
 /* SYMBOLS
