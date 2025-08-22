@@ -82,9 +82,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_TAB,  KC_GRV, KC_TILDE, KC_HASH, KC_AMPR, KC_PIPE, KC_VOLU,    _______, KC_CIRC, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_EXLM, KC_UNDS, KC_COLN,  KC_EQL,  KC_DLR, KC_VOLD,    _______,   KC_AT, KC_LPRN, KC_RPRN, KC_UNDS, XXXXXXX, KC_PIPE,
+      KC_LCTL, KC_EXLM, KC_UNDS, KC_COLN,  KC_EQL, KC_SLSH, KC_VOLD,    _______, KC_PERC, KC_LPRN, KC_RPRN, KC_UNDS, _______, KC_PIPE,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, KC_PERC, KC_SLSH, KC_ASTR, KC_PLUS, KC_BSLS,                      KC_SLSH, KC_MINS, KC_LABK, KC_RABK, XXXXXXX, KC_ESC,
+      KC_LSFT,   KC_AT, KC_SLSH, KC_ASTR, KC_PLUS, KC_BSLS,                       KC_DLR, KC_MINS, KC_LABK, KC_RABK, _______, KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______, _______,    _______, _______, KC_RALT
                                       //`--------------------------'  `--------------------------'
@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, MS_WHLU, MS_LEFT, MS_DOWN, MS_RGHT, KC_CAPS, KC_VOLD,    _______,  KC_END, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,  KC_INS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, MS_WHLD, MS_BTN3, MS_BTN3, MS_BTN2, _______,                      _______, KC_VOLD, KC_MUTE, KC_VOLU, _______, _______,
+      _______, MS_WHLD, MS_BTN1, MS_BTN3, MS_BTN2, _______,                      _______, KC_VOLD, KC_MUTE, KC_VOLU, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
@@ -161,6 +161,18 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
     }
     return false;
+}
+#endif
+
+#ifdef TAPPING_TERM_PER_KEY
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
+    switch (keycode) {
+        case GUI_SCLN:
+        case GUI_A:
+        case GUI_O:
+            return TAPPING_TERM + 100;
+    }
+    return TAPPING_TERM;
 }
 #endif
 
