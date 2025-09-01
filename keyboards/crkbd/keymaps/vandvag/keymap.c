@@ -52,6 +52,10 @@ enum crkbd_layers {
     _RGB,
 };
 
+enum custom_keycodes {
+    ARROW = SAFE_RANGE
+};
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x6_3_ex2(
@@ -82,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_TAB,  KC_GRV, KC_TILDE, KC_HASH, KC_AMPR, KC_PIPE, KC_VOLU,    _______, KC_CIRC, KC_LCBR, KC_RCBR, KC_LABK, KC_RABK, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_EXLM, KC_UNDS, KC_COLN,  KC_EQL, KC_SLSH, KC_VOLD,    _______, KC_PERC, KC_LPRN, KC_RPRN, KC_UNDS, _______, KC_PIPE,
+      KC_LCTL, KC_EXLM, KC_UNDS, KC_COLN,  KC_EQL, KC_SLSH, KC_VOLD,    _______, KC_PERC, KC_LPRN, KC_RPRN, KC_UNDS, _______,   ARROW,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,   KC_AT, KC_SLSH, KC_ASTR, KC_PLUS, KC_BSLS,                       KC_DLR, KC_LBRC, KC_RBRC, KC_MINS, _______, KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -139,6 +143,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   )
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+    const uint8_t mods = get_mods();
+    const uint8_t oneshot_mods = get_oneshot_mods();
+
+    switch(keycode) {
+    case ARROW:
+        if (record->event.pressed) {
+            if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
+                del_oneshot_mods(MOD_MASK_SHIFT);
+                unregister_mods(MOD_MASK_SHIFT);
+                tap_code16(KC_EQL);
+                tap_code16(KC_GT);
+                register_mods(mods);
+            } else {
+                tap_code16(KC_MINS);
+                tap_code16(KC_GT);
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
 
 #if 0
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
