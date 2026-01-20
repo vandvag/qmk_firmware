@@ -41,6 +41,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NUM_ALT LT(_NUM, KC_LALT)
 #define FN_ALT LT(_FN, KC_LALT)
 #define NAV_ESC LT(_NAV, KC_ESC)
+#define CTL_ESC LCTL_T(KC_ESC)
 
 enum crkbd_layers {
     _BASE,
@@ -62,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T, KC_VOLU,  DF(_CLMK),    KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL,    GUI_A,   ALT_S,   SFT_D,   CTL_F,   KC_G, KC_VOLD,   MO(_RGB),    KC_H,    CTL_J,   SFT_K,  ALT_L,GUI_SCLN, KC_QUOT,
+      CTL_ESC,    GUI_A,   ALT_S,   SFT_D,   CTL_F,   KC_G, KC_VOLD,   MO(_RGB),    KC_H,    CTL_J,   SFT_K,  ALT_L,GUI_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -74,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B, KC_VOLU,  DF(_BASE),    KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL,   GUI_A,   ALT_R,   SFT_S,  CTL_TH,    KC_G, KC_VOLD,   MO(_RGB),    KC_M,   CTL_N,   SFT_E,   ALT_I,   GUI_O, KC_QUOT,
+      CTL_ESC,   GUI_A,   ALT_R,   SFT_S,  CTL_TH,    KC_G, KC_VOLD,   MO(_RGB),    KC_M,   CTL_N,   SFT_E,   ALT_I,   GUI_O, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -86,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_TAB,  KC_GRV, KC_TILDE, KC_HASH, KC_AMPR, KC_PIPE, KC_VOLU,    _______, KC_CIRC, KC_LCBR, KC_RCBR, KC_LABK, KC_RABK, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_EXLM, KC_UNDS, KC_COLN,  KC_EQL, KC_SLSH, KC_VOLD,    _______, KC_PERC, KC_LPRN, KC_RPRN, KC_UNDS, _______,   ARROW,
+      CTL_ESC, KC_EXLM, KC_UNDS, KC_COLN,  KC_EQL, KC_SLSH, KC_VOLD,    _______, KC_PERC, KC_LPRN, KC_RPRN, KC_UNDS, _______,   ARROW,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,   KC_AT, KC_SLSH, KC_ASTR, KC_PLUS, KC_BSLS,                       KC_DLR, KC_LBRC, KC_RBRC, KC_MINS, _______, KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
