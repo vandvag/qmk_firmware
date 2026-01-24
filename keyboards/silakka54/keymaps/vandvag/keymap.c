@@ -1,6 +1,7 @@
 // Copyright 2023 QMK
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+#include <stdint.h>
 #include QMK_KEYBOARD_H
 
 // QWERTY Home Row mods
@@ -42,6 +43,9 @@ enum layers {
     _ADJUST,
 };
 
+enum custom_keycodes {
+	ARROW = SAFE_RANGE
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -95,3 +99,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______, _______, _______,          _______, _______,_______
     )
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+	const uint8_t mods = get_mods();
+	const uint8_t oneshot_mods = get_oneshot_mods();
+
+	switch(keycode) {
+	case ARROW:
+		if (record->event.pressed) {
+			if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
+				del_oneshot_mods(MOD_MASK_SHIFT);
+				unregister_mods(MOD_MASK_SHIFT);
+				tap_code16(KC_EQL);
+				tap_code16(KC_GT);
+				register_mods(mods);
+			} else {
+				tap_code(KC_MINS);
+				tap_code(KC_GT);
+			}
+		}
+		return false;
+	}
+	return true;
+}
+
+#ifdef TAPPING_TERM_PER_KEY
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
+	switch(keycode) {
+	case GUI_SCLN:
+	case GUI_A:
+	case GUI_O:
+		return TAPPING_TERM + 100;
+	}
+	return TAPPING_TERM;
+}
+#endif
