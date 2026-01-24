@@ -100,26 +100,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-	const uint8_t mods = get_mods();
-	const uint8_t oneshot_mods = get_oneshot_mods();
+    const uint8_t mods = get_mods();
+    const uint8_t oneshot_mods = get_oneshot_mods();
 
-	switch(keycode) {
-	case ARROW:
-		if (record->event.pressed) {
-			if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-				del_oneshot_mods(MOD_MASK_SHIFT);
-				unregister_mods(MOD_MASK_SHIFT);
-				tap_code16(KC_EQL);
-				tap_code16(KC_GT);
-				register_mods(mods);
-			} else {
-				tap_code(KC_MINS);
-				tap_code(KC_GT);
-			}
-		}
-		return false;
-	}
-	return true;
+    switch(keycode) {
+    case ARROW:
+        if (record->event.pressed) {
+            if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
+                del_oneshot_mods(MOD_MASK_SHIFT);
+                unregister_mods(MOD_MASK_SHIFT);
+                tap_code16(KC_EQL);
+                tap_code16(KC_GT);
+                register_mods(mods);
+            } else {
+                tap_code16(KC_MINS);
+                tap_code16(KC_GT);
+            }
+        }
+        return false;
+    }
+    return true;
 }
 
 #ifdef TAPPING_TERM_PER_KEY
