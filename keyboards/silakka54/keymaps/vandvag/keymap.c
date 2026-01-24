@@ -1,7 +1,6 @@
 // Copyright 2023 QMK
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#include <stdint.h>
 #include QMK_KEYBOARD_H
 
 // QWERTY Home Row mods
@@ -66,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_SYM] = LAYOUT(
          KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
         _______,  KC_GRV, KC_TILD, KC_HASH, KC_AMPR, KC_PIPE,                            KC_CIRC, KC_LCBR, KC_RCBR, KC_LABK, KC_RABK, KC_BSPC,
-        _______, KC_EXLM, KC_UNDS, KC_COLN,  KC_EQL, KC_SLSH,                            KC_PERC, KC_LPRN, KC_RPRN, KC_UNDS, _______, KC_PIPE,
+        _______, KC_EXLM, KC_UNDS, KC_COLN,  KC_EQL, KC_SLSH,                            KC_PERC, KC_LPRN, KC_RPRN, KC_UNDS, _______,   ARROW,
         _______,   KC_AT, KC_SLSH, KC_ASTR, KC_PLUS, KC_BSLS,                             KC_DLR, KC_LBRC, KC_RBRC, KC_MINS, KC_SLSH, _______,
                                            _______, _______, _______,           _______, MO(_ADJUST),_______
     ),
@@ -89,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______,                            _______,    KC_7,    KC_8,    KC_9,    KC_0, _______,
         _______, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, _______,                            _______,    KC_4,    KC_5,    KC_6, _______, _______,
         _______, _______, _______, _______, _______, _______,                               KC_0,    KC_1,    KC_2,    KC_3, _______, _______,
-                                            _______, _______, _______,          _______, _______,_______
+                                            _______, _______, _______,             KC_0, _______,_______
     ),
     [_ADJUST] = LAYOUT(
         _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
